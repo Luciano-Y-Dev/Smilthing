@@ -1,0 +1,25 @@
+[project]
+name = "server"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "bcrypt>=5.0.0",
+    "cryptography>=50.0.2",
+    "fastapi[standard]>=0.143.0",
+    "fpdf2>=2.8.9",
+    "itsdangerous>=2.2.0",
+    "psycopg[binary]>=3.3.6",
+    "python-multipart>=0.0.32",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[tool.fastapi]
+entrypoint = "app.main:app"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
