@@ -1,0 +1,395 @@
+@import "tailwindcss";
+
+@theme {
+  --color-canvas: #f6f3f2;
+  --color-surface: #ffffff;
+  --color-panel: #ffffff;
+  --color-ink: #2b2226;
+  --color-muted: #6e6166;
+  --color-accent: #c97f8d;
+  --color-accent-strong: #8f4453;
+  --color-accent-soft: #f9edf0;
+  --color-divider: #efe8e6;
+  --color-info: #4568b8;
+  --color-info-soft: #eef2fd;
+  --color-success: #357a52;
+  --color-success-soft: #ebf6ef;
+  --color-danger: #b54848;
+  --color-danger-solid: #b54848;
+  --color-danger-soft: #fdefef;
+
+  --font-sans: "Plus Jakarta Sans Variable", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Fraunces Variable", Georgia, serif;
+
+  --shadow-soft: 0 1px 2px rgba(43, 34, 38, 0.04),
+    0 12px 32px -12px rgba(43, 34, 38, 0.12);
+  --shadow-lift: 0 2px 4px rgba(43, 34, 38, 0.05),
+    0 18px 44px -14px rgba(43, 34, 38, 0.2);
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #ddd5d3 transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ddd5d3;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c4b8b5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Editorial landing — staged entrance */
+@keyframes ed-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes ed-rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ed-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes ed-slide {
+  from {
+    opacity: 0;
+    transform: translateX(48px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.ed-fade {
+  animation: ed-fade 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.ed-rise {
+  animation: ed-rise 800ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.ed-reveal {
+  animation: ed-reveal 1100ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.ed-slide {
+  animation: ed-slide 1000ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ed-fade,
+  .ed-rise,
+  .ed-reveal,
+  .ed-slide {
+    animation: none !important;
+  }
+}
+
+/* Admin dark cockpit — staged entrance */
+@keyframes admin-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes admin-slide {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.admin-rise {
+  animation: admin-rise 600ms var(--admin-ease, cubic-bezier(0.32, 0.72, 0, 1)) both;
+}
+
+.admin-slide {
+  animation: admin-slide 500ms var(--admin-ease, cubic-bezier(0.32, 0.72, 0, 1)) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .admin-rise,
+  .admin-slide {
+    animation: none !important;
+  }
+}
+
+/* Welcome overlay — staged first-run arrival */
+@keyframes splash-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes splash-logo {
+  from {
+    opacity: 0;
+    transform: scale(0.86);
+    filter: blur(14px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes splash-halo {
+  0% {
+    opacity: 0.65;
+    transform: translate(-50%, -50%) scale(0.55);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.55);
+  }
+}
+
+@keyframes splash-rise {
+  from {
+    opacity: 0;
+    transform: translateY(150%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes splash-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes splash-draw {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes splash-shine {
+  from {
+    transform: translateX(-130%);
+  }
+  to {
+    transform: translateX(130%);
+  }
+}
+
+@keyframes splash-drift-a {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(44px, -32px) scale(1.08);
+  }
+}
+
+@keyframes splash-drift-b {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(-38px, 28px) scale(1.07);
+  }
+}
+
+@keyframes splash-drift-c {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(26px, -34px) scale(1.06);
+  }
+}
+
+@keyframes splash-spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes splash-out {
+  to {
+    opacity: 0;
+    transform: scale(1.03);
+    filter: blur(8px);
+  }
+}
+
+.splash-fade {
+  animation: splash-fade 450ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.splash-logo {
+  animation: splash-logo 800ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.splash-halo {
+  opacity: 0;
+  animation: splash-halo 1300ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.splash-rise {
+  animation: splash-rise 750ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.splash-up {
+  animation: splash-up 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.splash-draw {
+  animation: splash-draw 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.splash-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 32%,
+    rgba(255, 255, 255, 0.38) 50%,
+    transparent 68%
+  );
+  transform: translateX(-130%);
+  animation: splash-shine 900ms cubic-bezier(0.16, 1, 0.3, 1) 1750ms both;
+  pointer-events: none;
+}
+
+.splash-drift-a {
+  animation: splash-drift-a 26s ease-in-out 600ms infinite alternate;
+}
+
+.splash-drift-b {
+  animation: splash-drift-b 30s ease-in-out 900ms infinite alternate;
+}
+
+.splash-drift-c {
+  animation: splash-drift-c 32s ease-in-out 1.2s infinite alternate;
+}
+
+.splash-sheen {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(201, 127, 141, 0.22) 70deg,
+    transparent 150deg,
+    transparent 210deg,
+    rgba(181, 104, 119, 0.16) 290deg,
+    transparent 360deg
+  );
+  -webkit-mask-image: radial-gradient(circle, black 18%, transparent 64%);
+  mask-image: radial-gradient(circle, black 18%, transparent 64%);
+  animation: splash-spin 44s linear 800ms infinite;
+}
+
+.splash-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 140px 140px;
+  opacity: 0.055;
+  mix-blend-mode: multiply;
+}
+
+.splash-vignette {
+  background: radial-gradient(
+    ellipse 120% 100% at 50% 45%,
+    transparent 52%,
+    rgba(43, 34, 38, 0.13) 100%
+  );
+}
+
+.splash-exit {
+  animation: splash-out 350ms cubic-bezier(0.4, 0, 1, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splash-fade,
+  .splash-logo,
+  .splash-halo,
+  .splash-rise,
+  .splash-up,
+  .splash-draw,
+  .splash-drift-a,
+  .splash-drift-b,
+  .splash-drift-c,
+  .splash-sheen,
+  .splash-exit {
+    animation: none !important;
+  }
+
+  .splash-shine::after {
+    animation: none !important;
+    transform: translateX(130%);
+  }
+}
