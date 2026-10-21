@@ -4,7 +4,7 @@ SaaS para clínicas dentales: multi-clínica, datos cifrados — FastAPI - React
 
 *English below: [English](#english)*
 
-![Demo de Smilthing](docs/smilthing-demo.mp4)
+![Demo de Smilthing](https://github.com/user-attachments/assets/b70b4437-2e41-4702-bb02-c16edc0c7993)
 
 ## Qué hace
 
